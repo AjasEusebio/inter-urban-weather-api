@@ -1,0 +1,7 @@
+node_modules
+
+# DB
+mongo-data
+
+# Env variables
+.env
