@@ -11,7 +11,6 @@ const getWeather = async (lat, lon) => {
     await cacheManager.connect()
     const cacheData = await cacheManager.get(cachekey)
     if (cacheData) {
-      console.log('Cache hit')
       return cacheData
     }
 
@@ -34,7 +33,6 @@ const getWeatherCities = async (req, res) => {
     const cacheData = await cacheManager.get(cachekey)
 
     if (cacheData) {
-      console.log('Cache hit cities')
       return res.json(cacheData)
     }
 
@@ -71,7 +69,6 @@ const getWeatherDetails = async (req, res) => {
     await cacheManager.connect()
     const cacheData = await cacheManager.get(cachekey)
     if (cacheData) {
-      console.log('Cache hit details')
       return res.json(cacheData)
     }
 
