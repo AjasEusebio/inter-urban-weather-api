@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  redis:
+    container_name: redis
+    image: redis:7.0.8
+    ports:
+      - "6379:6379"
+  mongodb:
+    container_name: auth_mongodb
+    restart: always
+    image: mongo:6.0.5
+    ports:
+      - "27017:27017"
+    volumes: 
+      - ./mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
